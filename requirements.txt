@@ -17,4 +17,5 @@ dash>=2.14.0
 plotly>=5.15.0
 dash-bootstrap-components>=1.4.0
 gunicorn
-
+anthropic
+groq
