@@ -1,0 +1,657 @@
+/* Variables CSS modernes */
+:root {
+    --primary-gradient: linear-gradient(135deg, #3b82f6, #4f46e5);
+    --primary-blue: #3b82f6;
+    --primary-indigo: #4f46e5;
+    --surface-primary: #ffffff;
+    --surface-secondary: #f8fafc;
+    --border-light: #e5e7eb;
+    --border-lighter: #f3f4f6;
+    --text-primary: #111827 !important;
+    --text-secondary: #6b7280 !important;
+    --text-muted: #9ca3af !important;
+    --shadow-subtle: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-soft: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-medium: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-large: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  /* Reset et base */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html, body {
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-feature-settings: "liga" 1, "kern" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #f8fafc;
+  }
+  
+  /* Layout principal edge-to-edge */
+  .properties-main-section {
+    width: 60%;
+    flex: 0 0 60%;
+  }
+  
+  .chat-main-section {
+    width: 40%;
+    flex: 0 0 40%;
+    min-width: 480px;
+  }
+  
+  /* Scrollbars modernes et invisibles */
+  .scrollbar-hidden {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Scrollbar personnalisée pour les éléments qui en ont besoin */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #e5e7eb #f9fafb;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #f9fafb;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #e5e7eb;
+    border-radius: 2px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #d1d5db;
+  }
+  
+  /* Filtres modernes */
+  .filter-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    background: white;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    user-select: none;
+    box-shadow: var(--shadow-subtle);
+  }
+  
+  .filter-chip:hover {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+    background: #eff6ff;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .filter-chip.active {
+    background: var(--primary-gradient);
+    color: white;
+    border-color: transparent;
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .filter-chip i {
+    font-size: 11px;
+    opacity: 0.8;
+  }
+  
+  /* Boutons de vue */
+  .view-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    color: var(--text-muted);
+    transition: var(--transition-smooth);
+    cursor: pointer;
+  }
+  
+  .view-btn:hover {
+    color: var(--primary-blue);
+    background: white;
+  }
+  
+  .view-btn.active {
+    color: var(--primary-blue);
+    background: white;
+    box-shadow: var(--shadow-subtle);
+  }
+  
+  /* Messages du chat modernes */
+  .message-wrapper {
+    margin-bottom: 24px;
+  }
+  
+  .message-wrapper.user {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .message-wrapper.bot {
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .message-content {
+    max-width: 85%;
+    padding: 16px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+    word-wrap: break-word;
+    position: relative;
+    box-shadow: var(--shadow-subtle);
+    font-weight: 400;
+  }
+  
+  /* ✅ CORRECTION PRINCIPALE: Messages bot avec texte noir forcé */
+  .message-content.bot {
+    background: white;
+    color: #111827 !important; /* Noir foncé - !important pour forcer */
+    border-bottom-left-radius: 8px;
+    border: 1px solid var(--border-lighter);
+  }
+  
+  /* ✅ Forcer la couleur pour tous les éléments de texte dans les messages bot */
+  .message-content.bot,
+  .message-content.bot p,
+  .message-content.bot span,
+  .message-content.bot div,
+  .message-content.bot strong,
+  .message-content.bot em,
+  .message-content.bot * {
+    color: #111827 !important;
+  }
+  
+  /* ✅ S'assurer que tous les paragraphes dans les messages bot sont noirs */
+  .message-content.bot p {
+    color: #111827 !important;
+    margin: 0 0 12px 0;
+  }
+  
+  .message-content.bot p:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* ✅ Corriger les listes et autres éléments de texte */
+  .message-content.bot ul {
+    color: #111827 !important;
+    margin: 12px 0;
+    padding-left: 20px;
+  }
+  
+  .message-content.bot li {
+    color: #111827 !important;
+    margin: 8px 0;
+  }
+  
+  /* ✅ Forcer la couleur pour tous les contenus de messages bot */
+  .message-wrapper.bot .message-content {
+    color: #111827 !important;
+  }
+  
+  .message-wrapper.bot .message-content * {
+    color: #111827 !important;
+  }
+  
+  /* ✅ Corriger spécifiquement les erreurs de couleur héritée */
+  .message-content.bot:not(.border-red-300) {
+    color: #111827 !important;
+  }
+  
+  /* Garder la couleur rouge pour les messages d'erreur */
+  .message-content.bot.border-red-300 {
+    color: #dc2626 !important;
+  }
+  
+  .message-content.user {
+    background: var(--primary-gradient);
+    color: white;
+    border-bottom-right-radius: 8px;
+    margin-left: auto;
+    font-weight: 500;
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .message-content p {
+    margin: 0 0 12px 0;
+  }
+  
+  .message-content p:last-child {
+    margin-bottom: 0;
+  }
+  
+  .message-content ul {
+    margin: 12px 0;
+    padding-left: 20px;
+  }
+  
+  .message-content li {
+    margin: 8px 0;
+  }
+  
+  .message-time {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    padding: 0 4px;
+    font-weight: 500;
+  }
+  
+  /* Suggestions rapides modernes */
+  .quick-suggestion {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 16px;
+    background: white;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-subtle);
+  }
+  
+  .quick-suggestion:hover {
+    background: #eff6ff;
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .quick-suggestion i {
+    font-size: 11px;
+    opacity: 0.8;
+  }
+  
+  /* Input moderne et large */
+  #message-input {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    resize: none;
+    transition: var(--transition-smooth);
+    border: 1.5px solid var(--border-light);
+  }
+  
+  #message-input:focus {
+    border-color: var(--primary-blue);
+    ring-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgb(59 130 246 / 0.1);
+  }
+  
+  #message-input::placeholder {
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+  
+  /* Bouton d'envoi moderne */
+  #send-button {
+    transition: var(--transition-smooth);
+    transform: scale(1);
+  }
+  
+  #send-button:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-medium);
+  }
+  
+  #send-button:active {
+    transform: scale(0.95);
+  }
+  
+  #send-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: scale(1);
+  }
+  
+  /* Cartes de propriétés ultra-modernes */
+  .property-card {
+    transition: var(--transition-smooth);
+    will-change: transform, box-shadow;
+    border: 1px solid var(--border-lighter);
+  }
+  
+  .property-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-large);
+    border-color: var(--border-light);
+  }
+  
+  .property-image {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .property-card:hover .property-image {
+    transform: scale(1.08);
+  }
+  
+  /* Effects de hover pour les liens */
+  .property-url {
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .property-url::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.6s;
+  }
+  
+  .property-url:hover::before {
+    left: 100%;
+  }
+  
+  .property-url:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+  }
+  
+  /* Animations d'apparition modernes */
+  @keyframes slideInFromRight {
+    from {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInFromLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .message-wrapper.user .message-content {
+    animation: slideInFromRight 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .message-wrapper.bot .message-content {
+    animation: slideInFromLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .property-card {
+    animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Animation staggerée pour les propriétés */
+  .property-card:nth-child(1) { animation-delay: 0.1s; }
+  .property-card:nth-child(2) { animation-delay: 0.15s; }
+  .property-card:nth-child(3) { animation-delay: 0.2s; }
+  .property-card:nth-child(4) { animation-delay: 0.25s; }
+  .property-card:nth-child(5) { animation-delay: 0.3s; }
+  .property-card:nth-child(6) { animation-delay: 0.35s; }
+  .property-card:nth-child(7) { animation-delay: 0.4s; }
+  .property-card:nth-child(8) { animation-delay: 0.45s; }
+  
+  /* Utilitaires */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+  
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  
+  /* States et interactions */
+  .loading {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 1.5s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+  
+  /* États d'erreur et succès */
+  .error-state {
+    color: #ef4444;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 14px;
+  }
+  
+  .success-state {
+    color: #10b981;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 14px;
+  }
+  
+  /* Responsive design moderne */
+  @media (max-width: 1280px) {
+    .properties-main-section {
+      width: 55%;
+      flex: 0 0 55%;
+    }
+    
+    .chat-main-section {
+      width: 45%;
+      flex: 0 0 45%;
+      min-width: 400px;
+    }
+    
+    #properties-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .properties-main-section {
+      width: 50%;
+      flex: 0 0 50%;
+    }
+    
+    .chat-main-section {
+      width: 50%;
+      flex: 0 0 50%;
+      min-width: 350px;
+    }
+    
+    #properties-grid {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      padding: 20px;
+      gap: 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .properties-main-section,
+    .chat-main-section {
+      width: 100%;
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .pt-16 {
+      flex-direction: column;
+    }
+    
+    .properties-main-section {
+      height: 60%;
+    }
+    
+    .chat-main-section {
+      height: 40%;
+      border-left: none;
+      border-top: 1px solid var(--border-light);
+    }
+    
+    #properties-grid {
+      grid-template-columns: 1fr;
+      padding: 16px;
+    }
+    
+    .message-content {
+      max-width: 90%;
+    }
+    
+    .filter-chip,
+    .quick-suggestion {
+      font-size: 12px;
+      padding: 8px 12px;
+    }
+  }
+  
+  /* Optimisations de performance */
+  .property-card,
+  .message-content,
+  .filter-chip,
+  .quick-suggestion {
+    will-change: transform;
+  }
+  
+  /* Focus states améliorés */
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+  }
+  
+  /* Print styles */
+  @media print {
+    .no-print {
+      display: none;
+    }
+  }
+  
+  /* Dark mode support (pour l'avenir) */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --surface-primary: #1f2937;
+      --surface-secondary: #111827;
+      --text-primary: #f9fafb;
+      --text-secondary: #d1d5db;
+    }
+  }
+  
+  /* Micro-interactions */
+  .property-card:active {
+    transform: translateY(-4px) scale(0.98);
+  }
+  
+  .filter-chip:active,
+  .quick-suggestion:active {
+    transform: scale(0.95);
+  }
+  
+  /* Glassmorphism effects pour le header */
+  .header-container {
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid rgba(229, 231, 235, 0.6);
+  }
+  
+  /* Typographie améliorée */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    color: var(--text-primary);
+  }
+  
+  .text-lg {
+    font-size: 1.125rem;
+    line-height: 1.4;
+  }
+  
+  .text-xl {
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+  
+  .text-2xl {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
